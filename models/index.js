@@ -7,10 +7,12 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
-
+console.log(config.use_env_variable);
 let sequelize;
 if (config.use_env_variable) {
+  console.log(config);
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
@@ -22,6 +24,7 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    console.log(model.name);
     db[model.name] = model;
   });
 
