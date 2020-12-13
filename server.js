@@ -3,7 +3,7 @@ const express = require("express");
 const db = require("./models");
 const app = express();
 const bodyParser = require("body-parser");
-const apiRouter=require('./routes/index')
+const apiRouter = require("./routes/index");
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -15,18 +15,8 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api",apiRouter);
+app.use("/api", apiRouter);
 
-// API ENDPOINTS
-// app.get("/api/users", (req, res) => {
-//   db.user.findAll().then((users) => res.json(users));
-// });
-
-// app.get("/", function (req, res) {
-//   db.user
-//     .findAll()
-//     .then((users) => res.json(users));
-// });
 const port = 3000;
 app.listen(port, () => {
   console.log(`Running on http://localhost:${port}`);
