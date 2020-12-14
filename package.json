@@ -2,7 +2,7 @@
   "name": "prueba-sequelize-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start-dev": "node index.js",
     "migrate": "npx sequelize-cli db:migrate",

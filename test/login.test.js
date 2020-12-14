@@ -1,5 +1,5 @@
 const request = require('supertest')
-const app = require('../server')
+const app = require('..')
 describe('login Endpoints', () => {
     it('login user', async() => {
         const res = await request(app)

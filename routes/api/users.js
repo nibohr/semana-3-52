@@ -1,7 +1,7 @@
-var express = require("express");
-var router = express.Router();
-var db = require("../../models");
-var controller = require("../../controller/registroController");
+const express = require("express");
+const router = express.Router();
+const db = require("../../models");
+const controller = require("../../controller/registroController");
 
 router.get("/", async (req, res) => {
   const usuarios = await db.user.findAll();

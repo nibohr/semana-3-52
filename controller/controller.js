@@ -1,7 +1,7 @@
 const config = require("../secret/config.js");
 const db = require("../models");
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 exports.signin = (req, res) => {
   db.user
@@ -15,7 +15,7 @@ exports.signin = (req, res) => {
         return res.status(404).send("User Not Found.");
       }
 
-      var passwordIsValid = bcrypt.compareSync(
+      const passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
@@ -29,7 +29,7 @@ exports.signin = (req, res) => {
           });
       }
 
-      var token = jwt.sign(
+      const token = jwt.sign(
         { id: user.id, name: user.name, email: user.email },
         config.secret,
         {

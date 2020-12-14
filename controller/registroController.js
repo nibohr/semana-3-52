@@ -1,6 +1,6 @@
 const config = require("../secret/config.js");
 const db = require("../models");
-var bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 exports.register = (req, res) => {
   const pass = bcrypt.hashSync(req.body.password, 8);
