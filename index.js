@@ -1,4 +1,4 @@
-const controller = require("./controller/controller.js");
+const controller = require("./controllers/controller.js");
 const express = require("express");
 const db = require("./models");
 const app = express();
